@@ -1,5 +1,5 @@
 # condor-deployment
-Docker HTCondor deployment configuration
+Docker HTCondor test deployment configuration
 
 To run, simply execute launch.sh which will:
 - Change secrets to have 0700 permissions
