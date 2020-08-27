@@ -1,0 +1,8 @@
+ALLOW_ADVERTISE_MASTER = \
+    $(ALLOW_ADVERTISE_MASTER) \
+    $(ALLOW_WRITE_COLLECTOR) \
+    dockerworker@jamie
+ALLOW_ADVERTISE_STARTD = \
+    $(ALLOW_ADVERTISE_STARTD) \
+    $(ALLOW_WRITE_COLLECTOR) \
+    dockerworker@jamie
