@@ -16,6 +16,7 @@ docker exec cm /home/create_token.sh
 # Submit:
 docker run --detach --network host --name=submit \
        -e CONDOR_HOST='localhost:9618' \
+       -v $(pwd -P)/submit/condor_config.local:/etc/condor/condor_config.local \
        -v $(pwd -P)/secrets:/root/secrets:ro \
        htcondor/submit:8.9.7-el7
 
@@ -24,5 +25,6 @@ docker run --detach --network host --name=execute \
        --env-file=$(pwd -P)/execute/env \
        -e CONDOR_HOST='localhost:9618' \
        --cpus=2 --memory-reservation=$(( 4096 * 1048576 )) \
+       -v $(pwd -P)/execute/condor_config.local:/etc/condor/condor_config.local \
        -v $(pwd -P)/secrets:/root/secrets:ro \
        htcondor/execute:8.9.7-el7

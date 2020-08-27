@@ -8,3 +8,4 @@ ALLOW_ADVERTISE_STARTD = \
     dockerworker@jamie
     
 SEC_USE_FAMILY_SESSION = False
+COLLECTOR_DEBUG = D_SECURITY:2
