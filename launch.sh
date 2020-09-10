@@ -9,6 +9,7 @@ docker run --detach -p 9618:9618 --name=cm \
        -v $(pwd -P)/cm/create_token.sh:/home/create_token.sh \
        -v $(pwd -P)/secrets:/root/secrets \
        -v $(pwd -P)/submitsecrets:/root/submitsecrets \
+       -v $(pwd -P)/scheddsecrets:/root/scheddsecrets \
        htcondor/cm:8.9.7-el7
 
 # Generate token and store it in /root/secrets/token
@@ -19,6 +20,7 @@ docker run --detach --network host --name=submit \
        -e CONDOR_HOST='localhost:9618' \
        -v $(pwd -P)/submit/condor_config.local:/etc/condor/condor_config.local \
        -v $(pwd -P)/submitsecrets:/home/submituser/.condor/tokens.d \
+       -v $(pwd -P)/scheddsecrets:/root/secrets \
        htcondor/submit:8.9.7-el7
 
 # Execute:
