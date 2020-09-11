@@ -1,17 +1,16 @@
 ALLOW_ADVERTISE_MASTER = \
     $(ALLOW_ADVERTISE_MASTER) \
     $(ALLOW_WRITE_COLLECTOR) \
-    dockerworker@jamie dockersubmit@jamie
+    dockerworker@jamie dockersubmit@host
 
 ALLOW_ADVERTISE_STARTD = \
     $(ALLOW_ADVERTISE_STARTD) \
     $(ALLOW_WRITE_COLLECTOR) \
-    dockerworker@jamie
+    dockerworker@host
 
 ALLOW_ADVERTISE_SCHEDD = \
     $(ALLOW_ADVERTISE_SCHEDD) \
-    dockersubmit@jamie
+    dockersubmit@host
 
 SEC_USE_FAMILY_SESSION = False
-COLLECTOR_DEBUG=D_SECURITY:2 D_NETWORK:2
 TRUST_DOMAIN=localhost:9618

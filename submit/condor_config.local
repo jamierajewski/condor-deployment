@@ -1,4 +1,4 @@
-ALLOW_WRITE = submituser@jamie
+ALLOW_WRITE = submituser@host
 SEC_USE_FAMILY_SESSION = False
 SHARED_PORT_PORT = 9621
 
