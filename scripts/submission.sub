@@ -1,5 +1,5 @@
 
-executable = example.sh
+executable = /tmp/example.sh
 
 error   = err.$(Process)
 output  = out.$(Process)
