@@ -1,0 +1,13 @@
+
+executable = /tmp/example.sh
+
+error   = err.$(Process)
+output  = out.$(Process)
+
+request_memory =  512
+request_cpus = 1
+request_disk = 128
+
+should_transfer_files = yes
+
+queue 1

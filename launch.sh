@@ -21,12 +21,14 @@ docker run --detach --network host --name=submit \
        -v $(pwd -P)/submit/condor_config.local:/etc/condor/condor_config.local \
        -v $(pwd -P)/submitsecrets:/home/submituser/.condor/tokens.d \
        -v $(pwd -P)/scheddsecrets:/root/secrets \
+       -v $(pwd -P)/scripts:/home/submituser/scripts \
        htcondor/submit:8.9.8-el7
 
 # Execute:
-# docker run --detach --network host --name=execute \
-#        --env-file=$(pwd -P)/execute/env \
-#        -e CONDOR_HOST='localhost:9618' \
-#        --cpus=2 --memory-reservation=$(( 4096 * 1048576 )) \
-#        -v $(pwd -P)/execute/condor_config.local:/etc/condor/condor_config.local \
-#        htcondor/execute:8.9.8-el7
+docker run --detach --network host --name=execute \
+       --env-file=$(pwd -P)/execute/env \
+       -v $(pwd -P)/secrets:/root/secrets \
+       -e CONDOR_HOST='localhost:9618' \
+       --cpus=2 --memory-reservation=$(( 4096 * 1048576 )) \
+       -v $(pwd -P)/execute/condor_config.local:/etc/condor/condor_config.local \
+       htcondor/execute:8.9.8-el7
